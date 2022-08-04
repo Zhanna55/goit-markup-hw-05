@@ -16,10 +16,11 @@
 }
 
 body {
-  background-color: var(--primary-bg-color);
-  color: var(--primary-text-color);
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
 }
 
 h1,
@@ -64,13 +65,14 @@ header {
   font-weight: 700;
   font-size: 26px;
   line-height: 1.19;
-  color: var(--logo-color);
   text-decoration: none;
   letter-spacing: 0.03em;
   display: block;
   padding-top: 24px;
   padding-bottom: 25px;
   margin-right: 93px;
+
+  color: var(--logo-color);
 }
 .logo-blue {
   color: var(--accent-color);
@@ -101,20 +103,20 @@ header {
   color: var(--accent-color);
 }
 .current {
-  color: var(--accent-color);
-
   position: relative;
+
+  color: var(--accent-color);
 }
 .current::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   content: '';
   width: 100%;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--accent-color);
 
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  background-color: var(--accent-color);
 }
 .contacts {
   display: flex;
@@ -126,14 +128,14 @@ header {
 
 .link-tel,
 .link-mail {
-  color: var(--primary-text-color);
-  display: block;
   padding-top: 32px;
   padding-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  color: var(--primary-text-color);
 
   transition: color var(--transition-duration) var(--transition-timing-function);
 }
@@ -155,20 +157,19 @@ header {
 /* -----------------------------hero -----------------------*/
 .hero {
   text-align: center;
-
   padding-top: 200px;
   padding-bottom: 200px;
-
   height: 600px;
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
+
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/img-hero.jpg);
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
   background-color: var(--hero-bg-color);
 }
 .hero-title {
@@ -177,13 +178,13 @@ header {
   line-height: 1.36;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #ffffff;
   border-radius: 4px;
   max-width: 696px;
   margin: 0 auto 30px;
+
+  color: #ffffff;
 }
 .button {
-  background-color: var(--button-bg-color);
   font-weight: 700;
   font-family: inherit;
   font-size: 16px;
@@ -192,33 +193,70 @@ header {
   align-items: center;
   cursor: pointer;
   letter-spacing: 0.06em;
-  color: var(--button-color);
-
   min-width: 200px;
   border: 1px solid transparent;
   padding: 10px 32px;
 
+  background-color: var(--button-bg-color);
+  color: var(--button-color);
+
   transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
-.button:hover,
-button:focus {
+.hero .button:hover,
+.hero .button:focus {
   background-color: var(--button-bg-accent-color);
 }
-/* .backdrop {
+
+/* -------------------------------------modal--------------------------------------------- */
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--primary-bg-color);
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity var(--transition-duration) var(--transition-timing-function),
+    visibility var(--transition-duration) var(--transition-timing-function);
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-} */
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
 
+  display: flex;
+  justify-content: end;
+  width: 528px;
+  min-height: 581px;
+  padding: 8px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  background-color: var(--primary-bg-color);
+}
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  background-color: var(--primary-bg-color);
+}
 /* -------------------------features ---------------------------*/
 
 .visually-hidden {
@@ -242,12 +280,13 @@ button:focus {
 }
 .features-thumb {
   height: 120px;
-  background-color: #f5f4fa;
   border-radius: 4px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: #f5f4fa;
 }
 
 .features-title {
@@ -256,9 +295,9 @@ button:focus {
   line-height: 1.14;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: var(--title-text-color);
-
   margin-bottom: 10px;
+
+  color: var(--title-text-color);
 }
 .features-text {
   line-height: 1.71;
@@ -277,9 +316,9 @@ button:focus {
   line-height: 1.17;
   text-align: center;
   letter-spacing: 0.03em;
-  color: var(--title-text-color);
-
   margin-bottom: 50px;
+
+  color: var(--title-text-color);
 }
 .works-list {
   display: flex;
@@ -298,6 +337,7 @@ button:focus {
   justify-content: center;
   width: 100%;
   height: 70px;
+
   background-color: rgba(47, 48, 58, 0.8);
 }
 .works-item-title {
@@ -306,6 +346,7 @@ button:focus {
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+
   color: #ffffff;
 }
 /* ------------------------------team-------------------------*/
@@ -319,21 +360,22 @@ button:focus {
   line-height: 1.17;
   text-align: center;
   letter-spacing: 0.03em;
-  color: var(--title-text-color);
-
   margin-bottom: 50px;
+
+  color: var(--title-text-color);
 }
 .team-list {
   display: flex;
   gap: 30px;
 }
 .team-item {
-  background-color: var(--primary-bg-color);
   text-align: center;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
   flex-basis: calc((100% - 90px) / 4);
+
+  background-color: var(--primary-bg-color);
 }
 .team-card {
   padding-top: 30px;
@@ -344,9 +386,9 @@ button:focus {
   line-height: 1.19;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: var(--title-text-color);
-
   margin-bottom: 10px;
+
+  color: var(--title-text-color);
 }
 .team-text {
   font-size: 16px;
@@ -360,16 +402,16 @@ button:focus {
   justify-content: center;
   gap: 10px;
 }
-
 .social-link {
   width: 44px;
   height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-bg-color);
   border-radius: 50%;
+
   color: #afb1b8;
+  background-color: var(--primary-bg-color);
 
   transition: color var(--transition-duration) var(--transition-timing-function),
     background-color var(--transition-duration) var(--transition-timing-function);
@@ -408,6 +450,7 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #afb1b8;
 
   transition: border var(--transition-duration) var(--transition-timing-function),
@@ -424,10 +467,10 @@ button:focus {
 /* -----------------------footer----------------------------- */
 
 .footer {
-  background-color: var(--footer-bg-color);
-
   padding-top: 60px;
   padding-bottom: 60px;
+
+  background-color: var(--footer-bg-color);
 }
 .footer-wrapper {
   display: flex;
@@ -443,10 +486,10 @@ button:focus {
   line-height: 1.19;
   text-decoration: none;
   letter-spacing: 0.03em;
-  color: #ffffff;
-
   display: inline-block;
   margin-bottom: 20px;
+
+  color: #ffffff;
 }
 .address-list-item:not(:last-child) {
   margin-bottom: 9px;
@@ -457,6 +500,7 @@ button:focus {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+
   color: var(--address-link-color);
 
   transition: color var(--transition-duration) var(--transition-timing-function);
@@ -470,6 +514,7 @@ button:focus {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   margin-bottom: 20px;
+
   color: #ffffff;
 }
 .footer-social-list {
@@ -478,16 +523,16 @@ button:focus {
   justify-content: center;
   gap: 10px;
 }
-
 .footer-social-link {
   width: 44px;
   height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+
   color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
 
   transition: color var(--transition-duration) var(--transition-timing-function),
     background-color var(--transition-duration) var(--transition-timing-function);
@@ -510,7 +555,6 @@ button:focus {
 }
 
 .menu-list-item {
-  background-color: #f5f4fa;
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -518,10 +562,13 @@ button:focus {
   text-align: center;
   letter-spacing: 0.03em;
   cursor: pointer;
-  color: var(--title-text-color);
   padding: 6px 22px;
   border-radius: 4px;
   border: none;
+
+  background-color: #f5f4fa;
+  color: var(--title-text-color);
+
   transition: background-color var(--transition-duration) var(--transition-timing-function),
     color var(--transition-duration) var(--transition-timing-function),
     box-shadow var(--transition-duration) var(--transition-timing-function);
@@ -551,8 +598,8 @@ button:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.projects-link:hover .project-overlay,
-.projects-link:focus .project-overlay {
+.projects-link:hover .project-description,
+.projects-link:focus .project-description {
   transform: translateY(0);
 }
 
@@ -562,23 +609,25 @@ button:focus {
   height: 100%;
   overflow: hidden;
 }
-.project-overlay {
+
+.project-description {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 63px 24px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(33, 150, 243, 0.9);
   transform: translateY(100%);
-  transition: transform var(--transition-duration) var(--transition-timing-function);
-}
-.project-description {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
+  padding: 63px 24px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background-color: rgba(33, 150, 243, 0.9);
   color: #ffffff;
+
+  transition: transform var(--transition-duration) var(--transition-timing-function);
 }
 .project-card {
   padding: 20px 24px;
@@ -591,14 +640,15 @@ button:focus {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
-  color: var(--title-text-color);
-
   margin-bottom: 4px;
+
+  color: var(--title-text-color);
 }
 .projects-text {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.88;
   letter-spacing: 0.03em;
+
   color: var(--primary-text-color);
 }
